@@ -56,7 +56,7 @@ function MAYNERAPI.Message(title, message, oldcolor, exittoprogpatch) ----Доб
     gpu.setBackground(0x333333) 
     gpu.setForeground(0xFFFFFF)
     gpu.fill(buttonX, buttonY, buttonWidth, buttonHeight, " ")
-    MAYNERAPI.DrawButton(#buttonX, #buttonY, 4, 1, OK, 0xFFFFFF, 0x333333 function()
+    MAYNERAPI.DrawButton(#buttonX, #buttonY, 4, 1, OK, 0xFFFFFF, 0x333333) function()
             --СТИРАЙСЯ ГОВНО НА ПАЛОЧКЕ ЗАДОЛБАЛО
             #exittoprogpatch
     end
