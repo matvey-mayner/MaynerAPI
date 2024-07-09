@@ -3,6 +3,8 @@ local event = require("event")
 local gpu = component.gpu
 local screen = component.screen
 local computer = require("computer")
+local internet = require("internet")
+local filesystem = require("filesystem")
 
 MAYNERAPI = {}
 
