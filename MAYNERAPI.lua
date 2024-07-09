@@ -89,12 +89,8 @@ function MAYNERAPI.Loading(posX, posY, barW, barH)
   end
 end
 
-function MAYNERAPI.sleep(s)
-    computer.shutdown()
-end
-
-function MAYNERAPI.sleep(r)
-    computer.shutdown(true)
+function MAYNERAPI.ScreenScale(SCX, SCY)
+    gpu.setResolution(#SCX, #SCY)
 end
 
 return MAYNERAPI
