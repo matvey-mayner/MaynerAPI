@@ -31,7 +31,7 @@ function MAYNERAPI.DrawButton(x1, y1, width, height, text, foreground, backgroun
 
 end
 
-function MAYNERAPI.Message(title, message, oldcolor) ----Добавил Мой Друг)
+function MAYNERAPI.Message(title, message, oldcolor, exittoprogpatch) ----Добавил Мой Друг) А фиксил, я....
     local width = math.max(30, #message + 10)
     local height = 7 
     local x = math.floor((gpu.getResolution() - width) / 2)
@@ -56,14 +56,9 @@ function MAYNERAPI.Message(title, message, oldcolor) ----Добавил Мой �
     gpu.setBackground(0x333333) 
     gpu.setForeground(0xFFFFFF)
     gpu.fill(buttonX, buttonY, buttonWidth, buttonHeight, " ")
-    gpu.set(buttonX + (buttonWidth - 6) / 2, buttonY, "OK")
-
-    local function check(_, _, x2, y2)
-        if x2 >= buttonX and x2 < buttonX + buttonWidth and y2 == buttonY then
-            gpu.setBackground(oldcolor)
-            gpu.fill(x, y, width, height, " ")
-            event.ignore("touch", check)
-        end
+    MAYNERAPI.DrawButton(#buttonX, #buttonY, 4, 1, OK, 0xFFFFFF, 0x333333 function()
+            --СТИРАЙСЯ ГОВНО НА ПАЛОЧКЕ ЗАДОЛБАЛО
+            #exittoprogpatch
     end
 end  
 
