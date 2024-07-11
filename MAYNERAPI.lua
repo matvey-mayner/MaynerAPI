@@ -4,7 +4,6 @@ local gpu = component.gpu
 local screen = component.screen
 local computer = require("computer")
 local internet = require("internet")
-local fs = require("filesystem")
 
 MAYNERAPI = {}
 
@@ -91,7 +90,9 @@ function MAYNERAPI.ScreenScale(SCX, SCY)
 end
 
 function MAYNERAPI.TabeletTest
-
+    
+local fs = require("filesystem")
+    
 local function isTablet()
   if component.isAvailable("tablet") then
     return true
