@@ -89,8 +89,8 @@ function MAYNERAPI.ScreenScale(SCX, SCY)
     gpu.setResolution(#SCX, #SCY)
 end
 
-function MAYNERAPI.TabeletTest
-    
+function MAYNERAPI.TabeletTest()
+
 local fs = require("filesystem")
     
 local function isTablet()
@@ -111,7 +111,6 @@ else
     error("ERROR 404")
   end
 end
-
 end
 
 return MAYNERAPI
