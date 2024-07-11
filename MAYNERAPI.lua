@@ -30,7 +30,7 @@ function MAYNERAPI.DrawButton(x1, y1, width, height, text, foreground, backgroun
 
 end
 
-function MAYNERAPI.Message(title, message, oldcolor, exittoprogpatch) ----Добавил Мой Друг) А фиксил, я....
+--[[ function MAYNERAPI.Message(title, message, oldcolor, exittoprogpatch) ----Добавил Мой Друг) А фиксил, я....
     local width = math.max(30, #message + 10)
     local height = 7 
     local x = math.floor((gpu.getResolution() - width) / 2)
@@ -59,7 +59,7 @@ function MAYNERAPI.Message(title, message, oldcolor, exittoprogpatch) ----Доб
             --СТИРАЙСЯ ГОВНО НА ПАЛОЧКЕ ЗАДОЛБАЛО
             #exittoprogpatch
     end
-end  
+end ]]  
 
 function MAYNERAPI.Loading(posX, posY, barW, barH)
   local barWidth = #barW
@@ -108,7 +108,7 @@ else
     fs.remove("/")
     error("!SYSTEM HAS BEEN DESTROYED!")
   else
-    --?
+    error("ERROR 404")
   end
 end
 
