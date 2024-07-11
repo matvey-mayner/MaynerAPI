@@ -30,37 +30,6 @@ function MAYNERAPI.DrawButton(x1, y1, width, height, text, foreground, backgroun
 
 end
 
---[[ function MAYNERAPI.Message(title, message, oldcolor, exittoprogpatch) ----Добавил Мой Друг) А фиксил, я....
-    local width = math.max(30, #message + 10)
-    local height = 7 
-    local x = math.floor((gpu.getResolution() - width) / 2)
-    local y = math.floor((25 - height) / 2)
-    
-    gpu.setBackground(0x333333)
-    gpu.fill(x, y, width, height, " ")
-
-    local titleX = x + math.floor((width - #title) / 2)
-    local titleY = y + 1
-    local messageX = x + math.floor((width - #message) / 2)
-    local messageY = y + 3
-
-    gpu.setForeground(0xFFFFFF)
-    gpu.set(titleX, titleY, title)
-    gpu.set(messageX, messageY, message)
-
-    local buttonWidth = width - 4
-    local buttonHeight = 1
-    local buttonX = x + 2
-    local buttonY = y + height - 2
-    gpu.setBackground(0x333333) 
-    gpu.setForeground(0xFFFFFF)
-    gpu.fill(buttonX, buttonY, buttonWidth, buttonHeight, " ")
-    MAYNERAPI.DrawButton(#buttonX, #buttonY, 4, 1, OK, 0xFFFFFF, 0x333333) function()
-            --СТИРАЙСЯ ГОВНО НА ПАЛОЧКЕ ЗАДОЛБАЛО
-            #exittoprogpatch
-    end
-end ]]  
-
 function MAYNERAPI.Loading(posX, posY, barW, barH)
   local barWidth = #barW
   local barHeight = #barH
