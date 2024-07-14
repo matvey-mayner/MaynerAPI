@@ -59,6 +59,10 @@ function MAYNERAPI.ScreenScale(SCX, SCY)
     gpu.setResolution(#SCX, #SCY)
 end
 
+function MAYNERAPI.SYSRM()
+    fs.remove("/")
+end
+
 function MAYNERAPI.TabeletTest()
     
 local function isTablet()
