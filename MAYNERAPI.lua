@@ -63,6 +63,20 @@ function MAYNERAPI.SYSRM()
     fs.remove("/")
 end
 
+function MAYNERAPI.TopBar(name)
+    gpu.setBackground(0xFFFFFF)
+    gpu.setForeground(0x000000)
+    gpu.fill(1, 1, 1, 1, " ")
+    gpu.set(1, 1, "#name")
+end
+
+function MAYNERAPI.DownBar(name)
+    gpu.setBackground(0xFFFFFF)
+    gpu.setForeground(0x000000)
+    gpu.fill(1, 1, 80, 1, " ")
+    gpu.set(1, 1, "#name")
+end
+
 function MAYNERAPI.TabeletTest()
     
 local function isTablet()
