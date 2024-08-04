@@ -26,9 +26,10 @@ function MAYNERAPI.DrawButton(x1, y1, width, height, text, foreground, backgroun
     local function check(_, _, x2, y2)
         if isWithinButton(x2, y2, x1, y1, width, height) then
             callback()
-            event.listen("touch", check)
         end
     end
+
+    event.listen("touch", check)
 
     return function()
         event.ignore("touch", check)
