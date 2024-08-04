@@ -5,6 +5,7 @@ local screen = component.screen
 local computer = require("computer")
 local fs = require("filesystem")
 local internet = require("internet")
+local os = require("os")
 
 MAYNERAPI = {}
 
@@ -89,6 +90,77 @@ function MAYNERAPI.DownBar(namedp)
     gpu.setForeground(0x000000)
     gpu.fill(1, 1, 80, 1, " ")
     gpu.set(1, 1, "#namedp")
+end
+
+---------------------------------------------------------------------   работа с FS    ---------------------------------------------------------------------
+
+function MAYNERAPI.FileExists(filePath)
+    return fs.exists(filePath)
+end
+
+function MAYNERAPI.ReadFile(filePath)
+    if not MAYNERAPI.FileExists(filePath) then
+        return nil, "Файл не существует."
+    end
+
+    local file = io.open(filePath, "r")
+    if not file then
+        return nil, "Не удалось открыть файл."
+    end
+
+    local content = file:read("*a")
+    file:close()
+    return content
+end
+
+function MAYNERAPI.WriteFile(filePath, content)
+    local file = io.open(filePath, "w")
+    if not file then
+        return false, "Не удалось открыть файл для записи."
+    end
+
+    file:write(content)
+    file:close()
+    return true
+end
+
+function MAYNERAPI.DeleteFile(filePath)
+    if not MAYNERAPI.FileExists(filePath) then
+        return false, "Файл не существует."
+    end
+
+    os.remove(filePath)
+    return true
+end
+
+function MAYNERAPI.ListFiles(directory)
+    if not fs.isDirectory(directory) then
+        return nil, "Директория не существует."
+    end
+
+    local files = {}
+    for file in fs.list(directory) do
+        table.insert(files, file)
+    end
+    return files
+end
+
+function MAYNERAPI.CreateDirectory(directory)
+    if fs.exists(directory) then
+        return false, "Директория уже существует."
+    end
+
+    fs.makeDirectory(directory)
+    return true
+end
+
+function MAYNERAPI.DeleteDirectory(directory)
+    if not fs.isDirectory(directory) then
+        return false, "Директория не существует."
+    end
+
+    fs.remove(directory)
+    return true
 end
 
 return MAYNERAPI
