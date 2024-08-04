@@ -29,6 +29,11 @@ function MAYNERAPI.DrawButton(x1, y1, width, height, text, foreground, backgroun
         end
     end
 
+    event.listen("touch", check)
+
+    return function()
+        event.ignore("touch", check)
+    end
 end
 
 function MAYNERAPI.Window(Wname)
