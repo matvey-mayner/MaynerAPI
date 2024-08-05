@@ -37,11 +37,11 @@ function MAYNERAPI.DrawButton(x1, y1, width, height, text, foreground, backgroun
     end
 end
 
-function MAYNERAPI.Window(Wname)
+function MAYNERAPI.Window()
         gpu.setBackground(0xFFFFFF)
         gpu.setForeground(0x000000)
         gpu.fill(10, 4, 63, 20, " ")
-        gpu.set(10, 4, #Wname)
+        --gpu.set(10, 4, #Wname)
 end
 
 function MAYNERAPI.Loading(posX, posY, barW, barH)
