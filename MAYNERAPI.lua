@@ -41,6 +41,8 @@ function MAYNERAPI.Window()
         gpu.setBackground(0xFFFFFF)
         gpu.setForeground(0x000000)
         gpu.fill(12, 4, 63, 20, " ")
+        gpu.setBackground(0x707070)
+        gpu.fill(12, 4, 63, 1, " ")
         --gpu.set(10, 4, #Wname)
 end
 
