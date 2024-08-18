@@ -6,6 +6,7 @@ local computer = require("computer")
 local fs = require("filesystem")
 local internet = require("internet")
 local os = require("os")
+local internet = component.proxy(component.list("internet")() or "")
 
 MAYNERAPI = {}
 
@@ -72,6 +73,56 @@ end
 
 function MAYNERAPI.ScreenScale(SCX, SCY)
     gpu.setResolution(#SCX, #SCY)
+end
+
+function MAYNERAPI.DownloadFileFromUrl(url, dist)
+    local handle, data, result, reason = internet.request(url), ""
+    if handle then
+        local file, fileError = io.open(dist, "wb") -- Open the file in binary write mode
+        if not file then
+            return nil, "Could not open file: " .. fileError
+        end
+        
+        while true do
+            result, reason = handle.read(math.huge)
+            if result then
+                file:write(result) -- Write the result to the file
+            else
+                handle.close()
+                file:close()
+                
+                if reason then
+                    return nil, reason
+                else
+                    return true -- Return true to indicate successful download
+                end
+            end
+        end
+    else
+        return nil, "Invalid address"
+    end
+end
+
+local function GetDataFromUrl(url)
+    local handle, data, result, reason = internet.request(url), ""
+    if handle then
+        while true do
+            result, reason = handle.read(math.huge) 
+            if result then
+                data = data .. result
+            else
+                handle.close()
+                
+                if reason then
+                    return nil, reason
+                else
+                    return data
+                end
+            end
+        end
+    else
+        return nil, "unvalid address"
+    end
 end
 
 --[[
