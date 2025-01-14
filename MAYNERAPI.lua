@@ -131,7 +131,6 @@ function MAYNERAPI.Message(title, message, oldcolor) ----Добавил Мой �
             
         end)   
        ]]--
-    end
 end  
 
 function MAYNERAPI.DownloadFileFromUrl(url, dist) --ХТО ТУТ ЧАТ ГПТПТПТПТ ЮЗАЛ!!!???
