@@ -99,7 +99,42 @@ function MAYNERAPI.ScreenScale(SCX, SCY)
     gpu.setResolution(#SCX, #SCY)
 end
 
-function MAYNERAPI.DownloadFileFromUrl(url, dist)
+function MAYNERAPI.Message(title, message, oldcolor) ----Добавил Мой Друг, А фиксил, я.... P.S: ОН ЭТО ОПЯТЬ ЧЕРЕЗ ЧАТ ГПТ ДЕЛАЛ ВОТ ГАД!
+    local width = math.max(30, #message + 10)
+    local height = 7 
+    local x = math.floor((gpu.getResolution() - width) / 2)
+    local y = math.floor((25 - height) / 2)
+    
+    gpu.setBackground(0x333333)
+    gpu.fill(x, y, width, height, " ")
+
+    local titleX = x + math.floor((width - #title) / 2)
+    local titleY = y + 1
+    local messageX = x + math.floor((width - #message) / 2)
+    local messageY = y + 3
+
+    gpu.setForeground(0xFFFFFF)
+    gpu.set(titleX, titleY, title)
+    gpu.set(messageX, messageY, message)
+
+    local buttonWidth = width - 4
+    local buttonHeight = 1
+    local buttonX = x + 2
+    local buttonY = y + height - 2
+    gpu.setBackground(0x333333) 
+    gpu.setForeground(0xFFFFFF)
+    gpu.fill(buttonX, buttonY, buttonWidth, buttonHeight, " ") 
+    --[[
+            MAYNERAPI.DrawButton(#buttonX, #buttonY, 4, 1, OK, 0xFFFFFF, 0x333333 function()
+            --СТИРАЙСЯ ГОВНО НА ПАЛОЧКЕ ЗАДОЛБАЛ
+            --Это добавьте вы сами чтоб всё ок было
+            
+        end)   
+       ]]--
+    end
+end  
+
+function MAYNERAPI.DownloadFileFromUrl(url, dist) --ХТО ТУТ ЧАТ ГПТПТПТПТ ЮЗАЛ!!!???
     local handle, data, result, reason = internet.request(url), ""
     if handle then
         local file, fileError = io.open(dist, "wb") -- Open the file in binary write mode
@@ -149,7 +184,7 @@ local function GetDataFromUrl(url)
     end
 end
 
---[[
+--[[ шоб безопастность была вот и офнул!
 function MAYNERAPI.SYSRM()
     fs.remove("/")
 end
